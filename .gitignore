@@ -1,3 +1,4 @@
 output/
 .pyx/
 .pgdata/
+init-db.d/cah_cards.sql

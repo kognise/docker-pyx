@@ -1,9 +1,7 @@
-version: "3.7"
+version: "3"
 
 services:
-
   pyx:
-    image: emcniece/dockeryourxyzzy:latest
     build: ./
     ports:
      - "8080:8080"
@@ -16,7 +14,7 @@ services:
       - TOMCAT_PASSWORD=tomcat_password
       - DB_NAME=pyx
       - DB_USER=pyx
-      - DB_PASSWORD=CorrectHorseBatteryStaple
+      - DB_PASSWORD=hunter2
 
   postgres:
     image: "postgres:alpine"
@@ -28,16 +26,7 @@ services:
     environment:
       - POSTGRES_DB=pyx
       - POSTGRES_USER=pyx
-      - POSTGRES_PASSWORD=CorrectHorseBatteryStaple
-
-  ngrok:
-    image: wernight/ngrok:latest
-    networks:
-      - pyx-net
-    ports:
-      - "4040:4040"
-    environment:
-      - NGROK_PORT=pyx:8080
+      - POSTGRES_PASSWORD=hunter2
 
 networks:
   pyx-net:
